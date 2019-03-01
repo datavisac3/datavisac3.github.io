@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- Bessere Anpassung an verschiedene Bildschirmgroessen -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AUSTAUSCHEN NOCH PLS</title>
+    <!-- Einbinden einer externen CSS - Datei -->
+    <link href="stylesheet.css" rel="stylesheet">
+    <link href="extras.css" rel="stylesheet">
+    <!-- Einbinden von D3 -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <!-- Einbinden einer externen JavaScipt Datei -->
+    <script src="constraintNet.json" type="text/javascript"></script>
+    <script src="ac3.js" type="text/javascript"></script>
+    <script src="table.js" type="text/javascript"></script>
+    <script type="text/javascript" src="extras.js"></script>
+    <script type="text/javascript" src="javascript.js"></script>
+	<script type="text/javascript" src="code_help.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Als erstes erstellen wir die Ueberschrift und die Leiste oben
+        am Bildschirmrand -->
+
+    <!-- Wenn auf die Ueberschrifft geklickt wird, wird die Funktion
+        'say_something()' in 'javascript.js' aufgerufen.
+        Dafuer verwendet man den Befehl 'onclick' in einem beliebigen html
+        Element / Tag.-->
+
+    <!-- Globales / Position fixed -->
+    <!-- // Kopfzeile //  -->
+    <div id="headline" onclick="say_something();">
+        <span style="    color: #FFFFFF;
+                padding-left: 15px; float: left; font-weight: bold; margin-top: 10px;/*Abstand zum linken Bildschirmrand*/   font-size: 30px;">AC3</span>
+        <div class="headline-buttons" style="float: right; margin-top: 18px; margin-right: 40px;">
+            <button type="button" class="text-button headline-button" name="button" onclick="go_to_section('landing')">Home</button>
+            <button type="button" class="text-button headline-button" name="button" onclick="go_to_section('overview')">&Uuml;bersicht</button>
+            <button type="button" class="text-button headline-button" name="button" onclick="go_to_section('algorithmus')">Algorithmus</button>
+            <button type="button" class="text-button headline-button" name="button" onclick="go_to_section('visualization')">Visualisierung</button>
+            <button type="button" class="text-button headline-button" name="button" onclick="go_to_section('hintergrund')">Hintergrund</button>
+        </div>
+    </div>
+    <!-- Start der eigentlichen Seite  -->
+    <div class="full-page">
+        <div class="section landing-section" id="first-section">
+            <div class="landing" style="background-color: rgba(50, 50, 50, 1)">
+                <div class="landing-item landing-medium">
+                    <img src="./data/ex_gra.png" alt="">
+                </div>
+                <div class="landing-item landing-medium">
+                    <span style="font-size: 50px; color: white; white-space: nowrap; border-bottom: solid; border-width: 5px; border-bottom-color: white; float: left;">AC3 Algorithmus<div id="main-cursor" style="height: 50px; width: 5px; float: right; animation: cursor-animation 1s infinite;"></div></span>
+                </div>
+            </div>
+            <i onclick="go_to_section('overview')" class="arrow down"></i>
+        </div>
+
+        <div class="section overview-section">
+            <div class="landing">
+                <div class="landing-item landing-medium"> <img src="data/motivation_graph.png"></div>
+                <div class="landing-item landing-medium">
+                    <span style="margin-right: 10vw;">
+                        <h1 style="color: var(--primary-color);">Weshalb AC3?</h1>
+                        <p style="color: var(--main-font-color);">Im Informatik-Studium lernen Studierende wie sich Probleme modellieren und mit Hilfe von Computern lösen lassen. Die bekannteste Modellierung ist die objektorientierte Modellierung, die in fast allen weit verbreiteten Programmiersprachen wie Java, Python, Javascript, C++,... unterstützt wird. Der Kerngedanke ist dabei Objekt zu entwickeln die interagieren. Die Interaktion zwischen den Objekten wird von dem Programmierer entworfen und implementiert. Wie sich Objekte zu verhalten haben wird dem Computer dabei explizit und konkret vorgegeben. Der Computer selbst führt diese Anweisungen aus.<br>
+                        Die Idee von deklarativer Programmierung - aus diesem Bereich stammt der AC3-Algorithmus - ist eine andere. Anstatt dem Computer explizit Anweisungen zu geben wie ein Problem gelöst werden soll, wird das Problem an sich beschrieben und die Programmiersprache (bzw. ihre Implementierug) bietet Mechanismen um dieses Problem zu lösen. Eine Variante der deklarativen Programmierung ist das Programmieren mit Constraints und Constraint-Netzen. Der Vorteil an dieser Form der Programmierung ist, dass diese Konstrukte intuitiv zu verstehen sind und zeigen wie Programmierung auch funktionieren kann. Besonders im Bereich der symbolischen Künstlichen Intelligenz spielt dieser Ansatz eine Rolle, da er hier genutzt werden kann um Wissen, Zusammenhänge, Fragestellungen,... zu repräsentieren.
+                        </p>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="section algotithmus-section">
+            <div class="landing">
+                <div class="landing-item landing-medium">
+                    <span style="margin-left: 10vw; color:">
+                        <h1 style="color: #B3E5FC;">Constraints, Constraintnetze und AC3</h1>
+                        <p style="color: white;">
+                            In der Constraint-Programmierung werden Probleme als Graphen modelliert für die bestimmte Bedingungen gelten.
+                            Einerseits existieren Variablen, die einen Wertebereich haben, der aus Zahlen, Zuständen, Aktionen,... bestehen kann.
+                            Variablen sind über Katen, die Constraints (also Einschränkungen) genannt werden, verbunden, die beschreiben welche Bedingungen für die Werte einer Variable gelten müssen.
+                             Ein Constraint-Netze könnte Sudoku modellieren in dem jedes Feld der 9x9-Matrix als Variable mit einem Wertebereich von 0 bis 9 aufgefasst wird, da jedes Feld einen dieser Werte annehmen kann.
+                             Die Constraints repräsentieren Einschränkungen auf diese Wertebereiche, zb. dass alle Variablen einer Zeile, Spalte oder eines Blocks unterschiedlich sein müssen.<br>
+                             Wie kann nun für solch ein Netz eine Lösung gesucht werden? Eine Möglichkeit ist: Durch ausprobieren.
+                             Der Computer testet systematisch für jede Variable alle möglichen Belebungen und überprüft ob alle Constraints erfüllt sind. Falls dies zutrifft wird diese Belegung zurückgegeben.
+                             Dieser Ansatz benötigt jedoch viel Rechenaufwand, da viele Lösungen getestet werden müssen, die eigentlich aussortiert werden können. Wie kann man dieses Vorgehen aber verbessern?
+                             AC3 (oder ausgeschrieben "arc consistency algorithm") reduziert den Aufwand für diese Suche durch eine Vorverarbeitung.
+                             Jeder Wert aus jedem Wertebereich wird überprüft ob er grundsätzlich Teil einer Lösung sein kann, falls nicht wird dieser Wert direkt entfernt, sodass er nicht mehr getestet werden muss.
+                             Auf diese Weise kann der Suchraum, also die Menge an zu testenden Kombinationen eingeschränkt werden.
+
+                    </span>
+                </div>
+                <div class="landing-item landing-medium"> <img src="data/Sudoku.png" style="height: 50%"></img></div>
+            </div>
+        </div>
+        <div class="section visualization-section">
+
+            <div class="visualization">
+                <div class="example-panel">
+                    <button type="button" class="text-button" onclick="run_other_example(1);">Beispiel 1</button>
+                    <button type="button" class="text-button" onclick="run_other_example(2);">Beispiel 2</button>
+                    <button type="button" class="text-button" onclick="run_other_example(3);">Beispiel 3</button>
+                    <button type="button" class="text-button" onclick="run_other_example(4);">Beispiel 4</button>
+                </div>
+
+                <div class="container">
+                    <!-- Erstes Grid-Element -->
+                    <div id="pseudo" class="container-item medium">
+                        <div class="in-item-test">
+                           <div class="code">
+                        <!-- Die Code-Zeilen in dem ersten Grid-Element TODO: Zeilennr. in Klammern entfernen-->
+                        <div class="line-of-code" onmouseout="document.getElementById('code_help').style.display = 'none'" ><span class="line_count"></span><span class="one"><strong>Funktionsaufruf AC3</strong></span></div>
+
+                        <div class="line-of-code" onmouseout="document.getElementById('code_help').style.display = 'none';" onmouseover="document.getElementById('code_help').style.display = 'inline'; document.getElementById('line_num').innerHTML = 2; what_line('2')"><span class="line_count"></span><span class="two">queue = Alle gerichteten Kanten des Constraint-Netzes</span></div>
+
+                        <div class="line-of-code" onmouseout="document.getElementById('code_help').style.display = 'none';" onmouseover="document.getElementById('code_help').style.display = 'inline'; document.getElementById('line_num').innerHTML = 3; what_line('3')"><span class="line_count"></span><span class="two">while ( queue != leer)</span></div>
+
+                        <div class="line-of-code" onmouseout="document.getElementById('code_help').style.display = 'none';" onmouseover="document.getElementById('code_help').style.display = 'inline'; document.getElementById('line_num').innerHTML = 4; what_line('4')"><span class="line_count"></span><span class="three">aktuelleKante = entnimm Kante (x,y) aus queue</span></div>
+
+                        <div class="line-of-code" onmouseout="document.getElementById('code_help').style.display = 'none';" onmouseover="document.getElementById('code_help').style.display = 'inline'; document.getElementById('line_num').innerHTML = 5; what_line('5')"><span class="line_count"></span><span class="three">if(entferneInkonsistenteWerte(x, y))</span></div>
+
+                        <div class="line-of-code" onmouseout="document.getElementById('code_help').style.display = 'none';" onmouseover="document.getElementById('code_help').style.display = 'inline'; document.getElementById('line_num').innerHTML = 6; what_line('6')"><span class="line_count"></span><span class="four">foreach ( Nachbar z von x)</span></div>
+
+                        <div class="line-of-code" onmouseout="document.getElementById('code_help').style.display = 'none';" onmouseover="document.getElementById('code_help').style.display = 'inline'; document.getElementById('line_num').innerHTML = 7; what_line('7')"><span class="line_count"></span><span class="five">füge Kante (z,x) zu Queue hinzu</span></div>
+
+                        <div class="line-of-code" onmouseout="document.getElementById('code_help').style.display = 'none';" ><span class="one"><br></span></div>
+
+                        <div class="line-of-code" onmouseout="document.getElementById('code_help').style.display = 'none';" onmouseover="document.getElementById('code_help').style.display = 'inline'; document.getElementById('line_num').innerHTML = 8; what_line('8')"><span class="line_count"></span><span class="one"><b>Funktion entferneInkonsistenteWerte(x, y)</b></span></div>
+
+                        <div class="line-of-code" onmouseout="document.getElementById('code_help').style.display = 'none';" onmouseover="document.getElementById('code_help').style.display = 'inline'; document.getElementById('line_num').innerHTML = 9; what_line('9')"><span class="line_count"></span><span class="two">removed = false</span></div>
+
+                        <div class="line-of-code" onmouseout="document.getElementById('code_help').style.display = 'none';" onmouseover="document.getElementById('code_help').style.display = 'inline'; document.getElementById('line_num').innerHTML = 10; what_line('10')"><span class="line_count"></span><span class="two">forEach(Wert v1 in der Domain von x)</span></div>
+
+                        <div class="line-of-code" onmouseout="document.getElementById('code_help').style.display = 'none';" onmouseover="document.getElementById('code_help').style.display = 'inline'; document.getElementById('line_num').innerHTML = 11; what_line('11')"><span class="line_count"></span><span class="three">if(Kein v2 in der Domain von y, so dass (x=v1, y=v2) den Constraints erfüllt)</span></div>
+
+                        <div class="line-of-code" onmouseout="document.getElementById('code_help').style.display = 'none';" onmouseover="document.getElementById('code_help').style.display = 'inline'; document.getElementById('line_num').innerHTML = 12; what_line('12')"><span class="line_count"></span><span class="four">lösche v1 aus Domain von x</span></div>
+
+                        <div class="line-of-code" onmouseout="document.getElementById('code_help').style.display = 'none';" onmouseover="document.getElementById('code_help').style.display = 'inline'; document.getElementById('line_num').innerHTML = 13; what_line('13')"><span class="line_count"></span><span class="four">removed = true</span></div>
+
+                        <div class="line-of-code" onmouseout="document.getElementById('code_help').style.display = 'none';" onmouseover="document.getElementById('code_help').style.display = 'inline'; document.getElementById('line_num').innerHTML = 14; what_line('14')"><span class="line_count"></span><span class="two">return removed</span></div>
+                    </div>
+                            <div class="data-statistics">
+                                Step: <span id="steps">0</span> / <span id="steps-to-do">0</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Zweites Grid-Element -->
+                    <div id="graph" class="container-item medium">
+                       <div id="code_help">
+                            <h2 id="headline2">Hilfe f&uuml;r Zeile <span id="line_num"></span></h2><br><br>
+							<img id="pic_gif" alt="hpic" src=" ">
+							<p id="test"></p>
+							<p id="htest"></p>
+							<img id="explain_pic" alt="explpic" src= " ">
+
+                        </div>
+                    </div>
+                    <!-- Drittes Grid-Element -->
+                    <div id="table" class="container-item medium">
+                        <div id="table_rows">
+                            <img src="./data/queue.png" alt="queue" style="width: 100%; border: 0px;"></img>
+                        </div>
+                    </div>
+                    <!-- Viretes Grid-Element -->
+                    <div id="init-graph" class="container-item medium"></div>
+                    <!-- Die Buttons um die Animation und die SChritte zu steuern -->
+                    <!-- Ende visualization -->
+                </div>
+                <div id="controls">
+                    <button class='normal-button' onclick="next_line(false)" disabled>Prev line</button>
+                    <button class='normal-button' onclick="toggle_animation()">
+                        <img id="play_button" src="./data/icon/play.png" alt="">
+                    </button>
+                    <button id="next-button" class='normal-button' onclick="next_line(true)">Next line</button>
+                </div>
+            </div>
+        </div>
+        <div class="section hintergrund-section">
+            <div class="landing">
+                <div class="landing-item landing-medium"> <img src="data/space_holder.svg"></img></div>
+                <div class="landing-item landing-medium">
+                    <span style="margin-right: 10vw; color:">
+                        <h1 style="color: #B3E5FC;">Algorithmus</h1>
+                        <p style="color: white;">
+                            Wie wir also sehen konnten, braucht der AC3-Algorithmus einige Komponenten, um problemlos zu operieren.
+                            Demnach brauchen wir also: <br>
+                            <br>
+                            -	Spezifizierte Constraints, die wir vorher schon eingeführt haben <br>
+                            -	Domäns, welche Werte beinhalten und untereinander in Beziehung stehen <br>
+                            <br>
+                            Daraus entwickelt sich unser Startgraph in dem all diese Informationen vorhanden sind. <br>
+                            Die Knoten erhalten eine Bezeichnung, die die Domän eindeutig kennzeichnet. <br>
+                            Innerhalb dieser Knoten befinden sich die Wertebereiche der dazugehörigen Domän. <br>
+                            Die Kanten des Graphen mit dem die Knoten verbunden sind, enthalten Informationen über die jeweiligen Constraints, also Bedingungen, die zwischen den Kanten herrschen sollen und registrieren welches Knotenpaar mit der entsprechenden Kante verbunden ist. <br>
+                            <br>
+                            Wenn all diese Parameter spezifiziert wurden, kann der AC3-Algorithmus anfangen zu arbeiten. <br>
+                              <br>
+                        </p>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="queue-info" class="small-infobox">
+        Aktuell betrachtete Kante <button class='outlined-button'>Verstanden</button>
+    </div>
+
+    <!-- // Nofity // -->
+    <!-- <div id="notifications"></div> -->
+
+            <!-- ### Ab hier kuemmern wir uns um den Kreis und verwenden D3 ### -->
+
+            <script>
+                ac3(g1);
+                // Um eine bessere Uebersicht zu erhalten, kann man natuerlich alle
+                // Funktionen in die 'javascipt.js' auslagern, so wie ich das hier gemacht habe.
+
+                // Eigene Funktionen aus 'javascript.js'
+                var canvas = create_canvas("#graph"); // Erstellt canvas / svg im Div 'content'
+                var all_connections = create_connections(canvas);
+
+                var all_nodes = create_nodes(canvas);
+                var circle = all_nodes[0];
+
+                // Erstelle den Initialen Graphen //
+                var init_canvas = create_canvas("#init-graph");
+
+                var all_connections_init = create_connections(init_canvas);
+
+                var all_nodes_init = create_nodes(init_canvas);
+
+                //// Abfrage der Tasten ////
+                document.onkeydown = function(e) {
+                    var numSections = document.getElementsByClassName('section').length;
+                    switch (e.keyCode) {
+                        case 37:
+                            next_line(false);
+                            break;
+                        case 38:
+                            go_to_section_code((currentScrollPosition - 1) % numSections);
+                            break;
+                        case 39:
+                            next_line(true);
+                            break;
+                        case 40:
+                            go_to_section_code((currentScrollPosition + 1) % numSections);
+                            break;
+                        case 32:
+                            // Leertaste startet die automatische Animation
+                            toggle_animation();
+                            break;
+                    }
+                };
+
+            </script>
+
+</body>
+
+</html>

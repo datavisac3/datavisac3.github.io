@@ -1,0 +1,667 @@
+/* Hier kann man alle Elemente nach Lust und Laune gestalten */
+
+:root {
+    --main-font-color: rgba(50, 50, 50, 1);
+    --extreme-light-text-color: rgba(200, 200, 200, 1);
+    --primary-color: #536dfe;
+    --primary-color-dark: #512da8;
+    --secundary-color: #f44336;
+
+    /* Colors */
+
+    --green-accent: #69F0AE;
+    --green-accent-dark: #00E676;
+
+    --edge-highlight-color: #FF9800;
+
+    /* Counter */
+    counter-reset: code_line_counter;
+}
+
+body {
+    --table-animation-duration: 1s;
+    --table-animation-duration-odd: 1s;
+    color: var(--main-font-color);
+    font-family: sans-serif;
+    margin: 0px;
+    padding: 0px;
+    /* padding-top: 70px; */
+    overflow-x: hidden;
+}
+
+#main-cursor {
+    background-color: var(--secundary-color);
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+/* sections */
+
+.section {
+    /* height: 100vh; */
+    width: 100vw;
+    background-color: var(--primary-color);
+}
+
+.section:nth-child(odd) {
+    background-color: var(--primary-color-dark);
+}
+
+.section:nth-child(even) {
+    background-color: white;
+}
+
+.section:last-child {
+}
+
+/* ENDE SECTIONS */
+
+.visualization{
+    position: relative;
+}
+
+.example-panel{
+    width: 56px;
+    height: calc(100% - 10px);
+    position: absolute;
+    right: -52px;
+    z-index: 81;
+    background: var(--primary-color);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+    -webkit-transition: all .2s; /* Safari */
+    transition: all .2s;
+    transition-timing-function: ease-in-out;
+    -webkit-transition-timing-function: ease-in-out;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+    margin-top: 5px;
+}
+
+.example-panel:hover{
+    right: 0px
+}
+/* Anfang Button */
+.example-panel > button{
+    transform: rotate(90deg);
+    margin-top: 90px;
+    margin-left: -40px;
+    white-space: nowrap;
+    color: white;
+    background: none;
+    border: none;
+    border-bottom: 3px;
+    border-bottom: solid;
+    border-bottom-color: rgba(0, 0, 0, 0);
+    padding-bottom: 7px;
+    font-size: 20px;
+    font-family: sans-serif;
+    -webkit-transition: all .2s; /* Safari */
+    transition: all .2s;
+    transition-timing-function: ease-in-out;
+    -webkit-transition-timing-function: ease-in-out;
+}
+
+.example-panel > button:hover {
+    border: none !important;
+    border-bottom: 3px !important;
+    border-bottom-color: white !important;
+    border-bottom:  solid !important;
+    -webkit-transition: all .2s; /* Safari */
+    transition: all .2s;
+    transition-timing-function: ease-in-out;
+    -webkit-transition-timing-function: ease-in-out;
+}
+
+
+.example-panel:after {
+    transform: rotate(90deg);
+    color: white;
+    padding: 10px;
+    padding-top: 5px;
+    font-size: 20px;
+    font-family: sans-serif;
+    content: 'Beispiel';
+    display: block;
+    position: absolute;
+    background: var(--primary-color);
+    top: 80px;
+    left: -65px;
+    width: 120;
+    height: 100;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: -5px;
+    border-top-left-radius: -5px;
+}
+
+/* Buttons */
+
+.normal-button {
+    background-color: var(--primary-color);
+    border: 0px;
+    color: white;
+    border-radius: 5px;
+    height: 34px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+    -webkit-transition: all .2s; /* Safari */
+    transition: all .2s;
+    transition-timing-function: ease-in-out;
+    -webkit-transition-timing-function: ease-in-out;
+}
+
+.normal-button:hover {
+    background-color: var(--primary-color-dark);
+}
+
+.normal-button:disabled {
+    background-color: gray;
+}
+
+.outlined-button {
+    color: white;
+    height: 34px;
+    margin: 10px;
+    font-weight: bolder;
+    font-family: sans-serif;
+
+    background-color: rgba(0, 0, 0, 0);
+    border: solid;
+    border-radius: 5px;
+    border-color: white;
+    border-width: 1px;
+    -webkit-transition: all .2s; /* Safari */
+    transition: all .2s;
+    transition-timing-function: ease-in-out;
+    -webkit-transition-timing-function: ease-in-out;
+}
+
+.outlined-buttonn:disabled {
+    color: gray;
+}
+
+.text-button {
+    white-space: nowrap;
+    color: white;
+    background: none;
+    border: none;
+    border-bottom: 3px;
+    border-bottom: solid;
+    border-bottom-color: rgba(0, 0, 0, 0);
+    padding-bottom: 9px;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    -webkit-transition: all .2s; /* Safari */
+    transition: all .2s;
+    transition-timing-function: ease-in-out;
+    -webkit-transition-timing-function: ease-in-out;
+    float: left;
+}
+
+/* .text-button:hover {
+    border: none;
+    border-bottom: 3px;
+    border-bottom-color: white;
+    border-bottom:  solid;
+    -webkit-transition: all .2s;
+    transition: all .2s;
+    transition-timing-function: ease-in-out;
+    -webkit-transition-timing-function: ease-in-out;
+} */
+
+.headline-buttons > button:hover {
+    border: none !important;
+    border-bottom: 3px !important;
+    border-bottom-color: white !important;
+    border-bottom:  solid !important;
+    -webkit-transition: all .2s;
+    transition: all .2s;
+    transition-timing-function: ease-in-out;
+    -webkit-transition-timing-function: ease-in-out;
+}
+
+.headline-buttons > * {
+    margin-left: 10px;
+}
+
+
+/* Entferne haessliche Linien im Firefox, wenn Button gedrueckt wird */
+button::-moz-focus-inner { border: 0; }
+
+/* ENDE Buttons */
+
+/* infobox */
+
+.small-infobox {
+    background-color: var(--primary-color);
+    color: white;
+    border-style: none;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+    padding-left: 10px;
+    border-radius: 5px;
+}
+
+.small-infobox:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 15px;
+    left: -20px;
+    width: 0;
+    height: 0;
+    border-color: transparent var(--primary-color) transparent transparent;
+    border-style: solid;
+    border-width: 10px;
+}
+
+.small-infobox-left {
+    background-color: var(--primary-color);
+    color: white;
+    border-style: none;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+    padding-left: 10px;
+    border-radius: 5px;
+}
+
+.small-infobox-left:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 15px;
+    right: -20px;
+    width: 0;
+    height: 0;
+    border-color: transparent transparent transparent var(--primary-color);
+    border-style: solid;
+    border-width: 10px;
+}
+
+#queue-info {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 80;
+    display: none;
+}
+
+.info-box {
+    width: 370px;
+    position: absolute;
+    z-index: 80;
+}
+
+/* Z.B. die Ueberschrift 'Beispiel mit D3' */
+
+#headline { /*Die obere Leiste*/
+    position: fixed; /*Leiste an der oberen Kante */
+    top: 0px;
+    background: var(--primary-color);
+    width: 100%; /*Breite ueber den ganzen Bildschirm*/
+    height: 56px;
+    z-index: 90;
+    -webkit-box-shadow: 0 8px 6px -6px transparent;
+    -moz-box-shadow: 0 8px 6px -6px transparent;
+    box-shadow: 0 8px 6px -6px transparent;
+    -webkit-transition: top .5s; /* Safari */
+    transition: top  .5s;
+    transition-timing-function: ease-in-out;
+    -webkit-transition-timing-function: ease-in-out;
+    float: left;
+}
+
+#headline:hover {
+    top: 0px !important;
+    -webkit-transition: top .5s; /* Safari */
+    transition: top  .5s;
+    transition-timing-function: ease-in-out;
+    -webkit-transition-timing-function: ease-in-out;
+}
+
+#headline h1{ /*Die Schrift an sich*/
+    color: #FFFFFF;
+    padding-left: 15px; /*Abstand zum linken Bildschirmrand*/
+    margin-top: 10px; /*Abstand zum oberen Bildschirmrand*/
+}
+
+.container{
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
+}
+
+@media screen and (min-width: 600px) {
+    .container{
+        display: grid;
+        grid-template-rows: repeat(1, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.container-item {
+    /*display: flex;*/
+    align-items: center;
+    justify-content: center;
+}
+
+.container-item.medium {
+    border-style: dotted;
+    border-top: 0px;
+    border-color: gray;
+    grid-row: span 1;
+    grid-column: span 1;
+    /* padding: 5px; */
+}
+
+.container-item.medium:nth-child(even){
+    border-left-style: none;
+}
+
+.landing {
+    display: grid;
+    grid-template-rows: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.landing-item {
+    /*display: flex;*/
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    display: inline-grid;
+    justify-items: center;
+}
+
+.landing-item.landing-medium {
+    /* border-style: dotted;
+    border-top: 0px;
+    border-color: gray; */
+    grid-row: span 1;
+    grid-column: span 1;
+    /* padding: 5px; */
+}
+
+/* Verhindere, dass ein doppelter Rahmen angezeigt wird  */
+.container-item.medium:nth-child(1), .container-item.medium:nth-child(2) {
+    border-top: dotted;
+    border-color: gray;
+}
+
+.container-item.medium#graph {
+    display: flex;
+}
+
+.in-item-test {
+    position: relative;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+}
+
+/* Pseudocodedarstellung */
+
+.code {
+    /* position: relative; */
+    top: 50%;
+    transform: translateY(-50%);
+    padding-left: 0px;
+    padding-right: 0px;
+    overflow: hidden;
+}
+
+.data-statistics {
+    position: absolute;
+    background: rgba(200, 200, 200, 0.1);
+    text-align: right;
+    color: var(--extreme-light-text-color);
+    bottom: 0px;
+    width: 100%;
+    -webkit-transition: all 0.1s; /* Safari */
+    transition: all 0.1s;
+    transition-timing-function: ease-in-out;
+    -webkit-transition-timing-function: ease-in-out;
+}
+
+@media screen and (min-width: 600px) {
+    .code {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        padding-left: 50px;
+        padding-right: 50px;
+        overflow: hidden;
+    }
+}
+
+.line-of-code {
+    border-radius: 5px;
+    text-align: left;
+    background-color: white;
+    width: 100%;
+    padding: 5px;
+}
+
+.line-of-code:nth-child(odd) {
+    background-color: rgba(230, 230, 230, 0.5);
+}
+
+.line-of-code:nth-child(1){
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.line-of-code .two {
+    margin-left: 20px;
+    width: calc(100% - 20px);
+}
+
+.line-of-code .three {
+    margin-left: 40px;
+    width: calc(100% - 40px);
+}
+
+.line-of-code .four {
+    margin-left: 60px;
+    width: calc(100% - 40px);
+}
+
+.line-of-code .five {
+    margin-left: 80px;
+    width: calc(100% - 40px);
+}
+
+.line-of-code:hover ~ #code_help {
+    color: green;
+}
+
+.line_count {
+    margin-right: 10px;
+}
+
+/* Erstelle die Zeilennummern automatisch */
+.line_count::before {
+    counter-increment: code_line_counter;
+    content: counter(code_line_counter);
+}
+
+/* END Pseudocodedarstellung */
+
+/* Graph Darstellung */
+
+.graph_edge {
+    stroke: black;
+    stroke-width: 3px;
+    -webkit-transition: all .5s; /* Safari */
+    transition: all .5s;
+    transition-timing-function: ease-in-out;
+    -webkit-transition-timing-function: ease-in-out;
+}
+
+.focus_edge {
+    stroke: var(--edge-highlight-color);
+    -webkit-transition: all .5s; /* Safari */
+    transition: all .5s;
+    transition-timing-function: ease-in-out;
+    -webkit-transition-timing-function: ease-in-out;
+}
+
+/* ENDE Graphdarstellung */
+
+/* Tabelle */
+
+/* Animationen der Tabelle  */
+
+@keyframes keyframes_table_row_even {
+    0%   {background-color: white;}
+    25%  {background-color: var(--green-accent);}
+    50%  {background-color: var(--green-accent);}
+    100% {background-color: white;}
+}
+
+@keyframes keyframes_table_row_odd {
+    0%   {background-color: rgba(230, 230, 230, 0.5);}
+    25%  {background-color: var(--green-accent-dark);}
+    50%  {background-color: var(--green-accent-dark);}
+    100% {background-color: rgba(230, 230, 230, 0.5);}
+}
+
+@keyframes keyframes_first_table_row {
+
+    0%   {background-color: white;}
+    100%  {background-color: var(--edge-highlight-color);}
+}
+
+@keyframes cursor-animation {
+    0%   {opacity: 0}
+    25%  {opacity: 1}
+    50%  {opacity: 1}
+    100% {opacity: 0}
+}
+
+
+
+div#table {
+    max-height: 507.5px;
+    overflow-y: scroll;
+}
+
+#table_rows {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.first_table_row {
+    background-color: var(--edge-highlight-color);
+    order: 1;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    border-color: black;
+
+    animation-name: keyframes_first_table_row;
+    animation-duration: .5s;
+    -webkit-transition: background-color .5s; /* Safari */
+    transition: background-color .5s;
+    transition-timing-function: ease-in-out;
+    -webkit-transition-timing-function: ease-in-out;
+}
+
+.first_table_row > * {
+    flex-grow: 1;
+}
+
+#table_rows > * {
+    /* flex-grow: 1; */
+    display: flex;
+    flex-basis: 100%;
+    flex-direction: row;
+    justify-content: center;
+    align-content: space-between;
+    padding: 10px;
+}
+
+.table_row {
+    opacity: 1;
+    order: 2;
+    display: flex;
+    animation-name: keyframes_table_row_even;
+    overflow-y: hidden;
+    animation-duration: var(--table-animation-duration);
+    -webkit-transition: all .5s; /* Safari */
+    transition: all .5s;
+    transition-timing-function: ease-in-out;
+    -webkit-transition-timing-function: ease-in-out;
+
+    flex-direction: row;
+    justify-content: center;
+    align-content: space-between;
+    padding: 10px;
+}
+
+
+.table_row:nth-child(odd) {
+    order: 2;
+    animation-duration: var(--table-animation-duration-odd);
+    background-color: rgba(230, 230, 230, 0.5);
+    animation-name: keyframes_table_row_odd;
+    /* animation-duration: 1s; */
+}
+
+
+.table_row > * {
+    flex-grow: 1;
+}
+
+/* END Tabelle  */
+
+#graph {
+    /* To make help - div sizable */
+    position: relative;
+}
+
+#code_help {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    color: var(--main-font-color);
+
+}
+
+#code_help p {
+    margin:20px;
+}
+
+#code_help h2 {
+    margin-top: 100px;
+}
+
+#controls {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: space-between;
+    padding: 10px;
+}
+
+#controls > button {
+    margin: 10px;
+    line-height: 0px;
+}
+
+/* SVG */
+
+.node_domain {
+    font-weight: bold;
+    font-family: sans-serif;
+    fill: var(--main-font-color);
+    font-size: 20px;
+}
+
+.constraint-condition {
+    font-size: 24px;
+    fill: var(--extreme-light-text-color);
+}

@@ -1,0 +1,229 @@
+// FIXME: Domain B & C enthält noch 2
+
+// GRAPH #1
+var g1= `{
+    "nodes": [{
+        "name": "A",
+        "domain": [0, 1, 2],
+        "cx": 350,
+        "cy": 150
+    }, {
+        "name": "B",
+        "domain": [0, 1, 2],
+        "cx": 250,
+        "cy": 350
+    }, {
+        "name": "C",
+        "domain": [0, 1, 2],
+        "cx": 450,
+        "cy": 350
+    }, {
+        "name": "D",
+        "domain": [0, 1, 2],
+        "cx": 600,
+        "cy": 350
+    }, {
+        "name": "E",
+        "domain": [1, 5, 8],
+        "cx": 600,
+        "cy": 150
+    }],
+    "edges": [{
+        "src": "A",
+        "dest": "D",
+        "constraint": "="
+    }, {
+        "src": "A",
+        "dest": "B",
+        "constraint": ">"
+    }, {
+        "src": "A",
+        "dest": "C",
+        "constraint": ">"
+    }, {
+        "src": "E",
+        "dest": "A",
+        "constraint": ">"
+    }, {
+        "src": "E",
+        "dest": "D",
+        "constraint": ">"
+    }]
+}
+`
+
+// GRAPH #2
+var g2= `{
+    "nodes": [{
+        "name": "A",
+        "domain": [0, 1, 2],
+        "cx": 350,
+        "cy": 350
+    }, {
+        "name": "B",
+        "domain": [0, 1, 2],
+        "cx": 100,
+        "cy": 100
+    }, {
+        "name": "C",
+        "domain": [0, 1, 2],
+        "cx": 350,
+        "cy": 100
+    }, {
+        "name": "D",
+        "domain": [0, 1, 2],
+        "cx": 650,
+        "cy": 100
+    }, {
+        "name": "E",
+        "domain": [0, 1, 2],
+        "cx": 550,
+        "cy": 350
+    }, {
+        "name": "F",
+        "domain": [0,1,2,5,6],
+        "cx": 700,
+        "cy": 350
+    }
+
+],
+    "edges": [{
+        "src": "B",
+        "dest": "C",
+        "constraint": "="
+    }, {
+        "src": "A",
+        "dest": "B",
+        "constraint": ">"
+    }, {
+        "src": "A",
+        "dest": "C",
+        "constraint": ">"
+    }, {
+        "src": "C",
+        "dest": "D",
+        "constraint": ">"
+    }, {
+        "src": "A",
+        "dest": "E",
+        "constraint": ">"
+    }, {
+        "src": "C",
+        "dest": "F",
+        "constraint": ">"
+    }]
+}
+`
+
+// GRAPH #3
+var g3= `{
+    "nodes": [{
+        "name": "A",
+        "domain": [0, 1, 2],
+        "cx": 250,
+        "cy": 350
+    }, {
+        "name": "B",
+        "domain": [0, 1, 2],
+        "cx": 150,
+        "cy": 350
+    }, {
+        "name": "C",
+        "domain": [0, 1, 2],
+        "cx": 350,
+        "cy": 350
+    }, {
+        "name": "D",
+        "domain": [0, 1, 2],
+        "cx": 250,
+        "cy": 250
+    }, {
+        "name": "E",
+        "domain": [0, 1, 2],
+        "cx": 250,
+        "cy": 450
+    }
+],
+    "edges": [{
+        "src": "A",
+        "dest": "B",
+        "constraint": "="
+    }, {
+        "src": "A",
+        "dest": "C",
+        "constraint": ">"
+    }, {
+        "src": "A",
+        "dest": "D",
+        "constraint": ">"
+    }, {
+        "src": "A",
+        "dest": "E",
+        "constraint": ">"
+    }]
+}
+`
+
+// GRAPH #4
+var g4= `{
+    "nodes": [{
+        "name": "A",
+        "domain": [0, 1, 2, 3, 4],
+        "cx": 400,
+        "cy": 150
+    }, {
+        "name": "B",
+        "domain": [0, 1, 2],
+        "cx": 250,
+        "cy": 200
+    }, {
+        "name": "C",
+        "domain": [0, 1, 2],
+        "cx": 250,
+        "cy": 350
+    }, {
+        "name": "D",
+        "domain": [0, 1, 2],
+        "cx": 400,
+        "cy": 400
+    }, {
+        "name": "E",
+        "domain": [0, 1, 2],
+        "cx": 550,
+        "cy": 350
+    }, {
+        "name": "F",
+        "domain": [0,1,2,5,6],
+        "cx": 550,
+        "cy": 200
+    }
+
+],
+    "edges": [{
+        "src": "A",
+        "dest": "B",
+        "constraint": "="
+    }, {
+        "src": "B",
+        "dest": "C",
+        "constraint": ">"
+    }, {
+        "src": "C",
+        "dest": "D",
+        "constraint": ">"
+    }, {
+        "src": "D",
+        "dest": "E",
+        "constraint": ">"
+    }, {
+        "src": "E",
+        "dest": "F",
+        "constraint": ">"
+    }, {
+        "src": "F",
+        "dest": "A",
+        "constraint": ">"
+    }
+    ]
+}
+`
