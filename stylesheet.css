@@ -378,6 +378,16 @@ button::-moz-focus-inner { border: 0; }
     grid-column: span 1;
     /* padding: 5px; */
 }
+.landing-item.landing-big {
+    /* border-style: dotted;
+    border-top: 0px;
+    border-color: gray; */
+    grid-row: span 1;
+    grid-column: span 2;
+    background-color: rgba(40, 40, 40, 1);
+    color: white;
+    /* padding: 5px; */
+}
 
 /* Verhindere, dass ein doppelter Rahmen angezeigt wird  */
 .container-item.medium:nth-child(1), .container-item.medium:nth-child(2) {
@@ -664,4 +674,78 @@ div#table {
 .constraint-condition {
     font-size: 24px;
     fill: var(--extreme-light-text-color);
+}
+
+.headline_foot {
+    font-size: 40px;
+    padding-bottom: 30px;
+}
+
+.footer_para {
+    font-size: 20px;
+    text-align: center;
+}
+
+.footer_buttons > button {
+    margin: 5px;
+    float: left;
+    border: solid;
+    border-width: 2px;
+    font-size: 20px;
+    padding: 5px;
+    border-color: rgba(125, 150, 150, 1);
+    border-radius: 4px;
+    background: transparent;
+    color: white;
+    -webkit-transition: all .1s; /* Safari */
+    transition: all .1s;
+    transition-timing-function: ease-in-out;
+    -webkit-transition-timing-function: ease-in-out;
+}
+
+.footer_buttons > button:hover {
+    border-color: white;
+    -webkit-transition: all .1s; /* Safari */
+    transition: all .1s;
+    transition-timing-function: ease-in-out;
+    -webkit-transition-timing-function: ease-in-out;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
 }

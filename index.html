@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <!-- Bessere Anpassung an verschiedene Bildschirmgroessen -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AUSTAUSCHEN NOCH PLS</title>
+    <title>AC3-Visualisierung</title>
     <!-- Einbinden einer externen CSS - Datei -->
     <link href="stylesheet.css" rel="stylesheet">
     <link href="extras.css" rel="stylesheet">
@@ -38,7 +38,7 @@
         <div class="headline-buttons" style="float: right; margin-top: 18px; margin-right: 40px;">
             <button type="button" class="text-button headline-button" name="button" onclick="go_to_section('landing')">Home</button>
             <button type="button" class="text-button headline-button" name="button" onclick="go_to_section('overview')">&Uuml;bersicht</button>
-            <button type="button" class="text-button headline-button" name="button" onclick="go_to_section('algorithmus')">Algorithmus</button>
+            <button type="button" class="text-button headline-button" name="button" onclick="go_to_section('algorithmus')">Grundlagen</button>
             <button type="button" class="text-button headline-button" name="button" onclick="go_to_section('visualization')">Visualisierung</button>
             <button type="button" class="text-button headline-button" name="button" onclick="go_to_section('hintergrund')">Hintergrund</button>
         </div>
@@ -62,10 +62,14 @@
                 <div class="landing-item landing-medium"> <img src="data/motivation_graph.png"></div>
                 <div class="landing-item landing-medium">
                     <span style="margin-right: 10vw;">
-                        <h1 style="color: var(--primary-color);">Weshalb AC3?</h1>
-                        <p style="color: var(--main-font-color);">Im Informatik-Studium lernen Studierende wie sich Probleme modellieren und mit Hilfe von Computern lösen lassen. Die bekannteste Modellierung ist die objektorientierte Modellierung, die in fast allen weit verbreiteten Programmiersprachen wie Java, Python, Javascript, C++,... unterstützt wird. Der Kerngedanke ist dabei Objekt zu entwickeln die interagieren. Die Interaktion zwischen den Objekten wird von dem Programmierer entworfen und implementiert. Wie sich Objekte zu verhalten haben wird dem Computer dabei explizit und konkret vorgegeben. Der Computer selbst führt diese Anweisungen aus.<br>
-                        Die Idee von deklarativer Programmierung - aus diesem Bereich stammt der AC3-Algorithmus - ist eine andere. Anstatt dem Computer explizit Anweisungen zu geben wie ein Problem gelöst werden soll, wird das Problem an sich beschrieben und die Programmiersprache (bzw. ihre Implementierug) bietet Mechanismen um dieses Problem zu lösen. Eine Variante der deklarativen Programmierung ist das Programmieren mit Constraints und Constraint-Netzen. Der Vorteil an dieser Form der Programmierung ist, dass diese Konstrukte intuitiv zu verstehen sind und zeigen wie Programmierung auch funktionieren kann. Besonders im Bereich der symbolischen Künstlichen Intelligenz spielt dieser Ansatz eine Rolle, da er hier genutzt werden kann um Wissen, Zusammenhänge, Fragestellungen,... zu repräsentieren.
-                        </p>
+                        <h1 style="color: var(--primary-color);">Einstieg in den Algorithmus</h1>
+                        <span style="color: var(--main-font-color);">Im Informatik-Studium lernen Studierende wie sich Probleme modellieren und mit Hilfe von Computern lösen lassen. Eine der bekanntesten Modellierungen ist die objektorientierte Modellierung, die in fast allen weit verbreiteten Programmiersprachen wie Java, Python, Javascript, C++,... unterstützt wird. Der Kerngedanke dabei ist es interagierende Objekte zu entwickeln. Die Interaktion zwischen den Objekten wird von dem Programmierer entworfen und implementiert. Wie sich Objekte zu verhalten haben wird dem Computer dabei explizit und konkret vorgegeben. Der Computer selbst führt diese  Anweisungen direkt aus.<br>
+                        Die Idee von deklarativer Programmierung ist eine andere. Anstatt dem Computer explizit Anweisungen zu geben wie ein Problem gelöst werden soll, wird das Problem an sich beschrieben und die Programmiersprache (bzw. ihre Implementierung) beinhaltet Mechanismen um dieses Problem zu lösen. Eine Variante der deklarativen Programmierung ist das Programmieren mit Constraints und Constraint-Netzen - aus diesem Bereich stammt der AC3-Algorithmus. Der Vorteil an dieser Form der Programmierung ist, dass sie für Menschen relativ intuitiv zu verstehen ist. Besonders im Bereich der
+
+                        <div class="tooltip">symbolischen Künstlichen Intelligenz
+                        <span class="tooltiptext">Probleme werden als menschlich-lesbare Beziehungen dargestellt</span>
+                        </div> spielt dieser Ansatz eine Rolle, da er hier genutzt werden kann um Wissen, Zusammenhänge, Fragestellungen,... zu repräsentieren.
+                    </span>
                     </span>
                 </div>
             </div>
@@ -79,15 +83,14 @@
                             In der Constraint-Programmierung werden Probleme als Graphen modelliert für die bestimmte Bedingungen gelten.
                             Einerseits existieren Variablen, die einen Wertebereich haben, der aus Zahlen, Zuständen, Aktionen,... bestehen kann.
                             Variablen sind über Katen, die Constraints (also Einschränkungen) genannt werden, verbunden, die beschreiben welche Bedingungen für die Werte einer Variable gelten müssen.
-                             Ein Constraint-Netze könnte Sudoku modellieren in dem jedes Feld der 9x9-Matrix als Variable mit einem Wertebereich von 0 bis 9 aufgefasst wird, da jedes Feld einen dieser Werte annehmen kann.
+                             Ein Constraint-Netz könnte Sudoku modellieren in dem jedes Feld der 9x9-Matrix als Variable mit einem Wertebereich von 0 bis 9 aufgefasst wird, da jedes Feld einen dieser Werte annehmen kann.
                              Die Constraints repräsentieren Einschränkungen auf diese Wertebereiche, zb. dass alle Variablen einer Zeile, Spalte oder eines Blocks unterschiedlich sein müssen.<br>
                              Wie kann nun für solch ein Netz eine Lösung gesucht werden? Eine Möglichkeit ist: Durch ausprobieren.
                              Der Computer testet systematisch für jede Variable alle möglichen Belebungen und überprüft ob alle Constraints erfüllt sind. Falls dies zutrifft wird diese Belegung zurückgegeben.
-                             Dieser Ansatz benötigt jedoch viel Rechenaufwand, da viele Lösungen getestet werden müssen, die eigentlich aussortiert werden können. Wie kann man dieses Vorgehen aber verbessern?
-                             AC3 (oder ausgeschrieben "arc consistency algorithm") reduziert den Aufwand für diese Suche durch eine Vorverarbeitung.
+                             Dieser Ansatz benötigt jedoch viel Rechenaufwand, da viele Lösungen getestet werden müssen, die eigentlich aussortiert werden könnten. Wie kann man dieses Vorgehen aber verbessern?
+                             AC3 (oder ausgeschrieben "Arc Consistency Algorithm") reduziert den Aufwand für diese Suche durch eine Vorverarbeitung.
                              Jeder Wert aus jedem Wertebereich wird überprüft ob er grundsätzlich Teil einer Lösung sein kann, falls nicht wird dieser Wert direkt entfernt, sodass er nicht mehr getestet werden muss.
                              Auf diese Weise kann der Suchraum, also die Menge an zu testenden Kombinationen eingeschränkt werden.
-
                     </span>
                 </div>
                 <div class="landing-item landing-medium"> <img src="data/Sudoku.png" style="height: 50%"></img></div>
@@ -177,28 +180,54 @@
         </div>
         <div class="section hintergrund-section">
             <div class="landing">
-                <div class="landing-item landing-medium"> <img src="data/space_holder.svg"></img></div>
+                <div class="landing-item landing-medium"> <img src="data/hintergrund.jpg" style="height: 25%"></img></div>
                 <div class="landing-item landing-medium">
                     <span style="margin-right: 10vw; color:">
                         <h1 style="color: #B3E5FC;">Algorithmus</h1>
                         <p style="color: white;">
-                            Wie wir also sehen konnten, braucht der AC3-Algorithmus einige Komponenten, um problemlos zu operieren.
-                            Demnach brauchen wir also: <br>
+                          Wie wir also sehen konnten, braucht der AC3-Algorithmus einige Komponenten, um problemlos zu operieren.
+                          Demnach brauchen wir also: <br> </p>
+                          <ul style="color: white">
+                            <li>spezifizierte Constraints, die wir vorher schon eingeführt haben</li>
+                            <li>Domäns, welche Werte beinhalten und untereinander in Beziehung stehen</li>
+                          </ul>
+                          <p style="color: white;">
+                                        Daraus entwickelt sich unser Startgraph in dem all diese Informationen vorhanden sind. <br>
+                                        Die Knoten erhalten eine Bezeichnung, die die Domän eindeutig kennzeichnet. <br>
+                                        Innerhalb dieser Knoten befinden sich die Wertebereiche der dazugehörigen Domän. <br>
+                                        Die Kanten des Graphen mit dem die Knoten verbunden sind, enthalten Informationen über die jeweiligen Constraints, also Bedingungen, die zwischen den Kanten herrschen sollen und registrieren welches Knotenpaar mit der entsprechenden Kante verbunden ist. <br>
+                                        <br>
+                          Die Checkliste für den angezeigten Graphen wäre folgende: <br>
+                          "A" und "B" sind die eindeutigen Zeichnungen der Knoten! <br>
+                          Die Domän von "A" beinhaltet die Wertemenge {0,1,2}, <br>
+                          Domän "B" hat hingegen {0,2,3} als Wertemenge. <br>
+                          Was ist die aufgestellte Bedingung (der Constraint), welche "A" und "B" erfüllen sollen? - Eine "kleiner als"-Bedingung soll zwischen "A" und "B" herrschen. <br> <br>
+                          Wenn all diese Parameter spezifiziert und identifiziert wurden, kann der AC3-Algorithmus anfangen zu arbeiten. <br>
                             <br>
-                            -	Spezifizierte Constraints, die wir vorher schon eingeführt haben <br>
-                            -	Domäns, welche Werte beinhalten und untereinander in Beziehung stehen <br>
-                            <br>
-                            Daraus entwickelt sich unser Startgraph in dem all diese Informationen vorhanden sind. <br>
-                            Die Knoten erhalten eine Bezeichnung, die die Domän eindeutig kennzeichnet. <br>
-                            Innerhalb dieser Knoten befinden sich die Wertebereiche der dazugehörigen Domän. <br>
-                            Die Kanten des Graphen mit dem die Knoten verbunden sind, enthalten Informationen über die jeweiligen Constraints, also Bedingungen, die zwischen den Kanten herrschen sollen und registrieren welches Knotenpaar mit der entsprechenden Kante verbunden ist. <br>
-                            <br>
-                            Wenn all diese Parameter spezifiziert wurden, kann der AC3-Algorithmus anfangen zu arbeiten. <br>
-                              <br>
                         </p>
                     </span>
                 </div>
             </div>
+        </div>
+        <div class="section overview-section">
+            <div class="landing">
+                <div class="landing-item landing-big footer">
+                    <span class="headline_foot">Hat dir unsere Seite weitergeholfen?</span>
+
+                    <p class="footer_para">
+                        Viel Zeit und M&uuml;he wurde von uns investiert, um dieses Projekt m&ouml;glich zu machen.<br>
+                        Jetzt ist deine Meinung gefragt! Hilf uns besser zu werden, oder teile diese Seite mit anderen!</p>
+                    <div class="footer_buttons">
+                        <button onclick="window.location.href = 'https://docs.google.com/forms/d/e/1FAIpQLSdne4OIkccn8ckpuJiiUwjDffy-rzihg3a6I7AXUDJLIgUudA/viewform?usp=sf_link';">Ich habe eine Meinung!</button>
+
+                        <button onclick="window.location.href = 'https://box.fu-berlin.de/s/4H365sYRMK3gQp3'">Zu unseren Unterlagen</button>
+                        <button>Teile diese Seite!</button>
+
+
+                    </div>
+                </div>
+            </div>
+            <div style="color: rgba(80, 80, 80, 1); background-color: rgba(40, 40, 40, 1); width: 100%;">2018 / 2019</div>
         </div>
     </div>
     <div id="queue-info" class="small-infobox">

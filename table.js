@@ -25,9 +25,6 @@ function add_lines_to_table(lines) {
 
         i++;
     }
-
-
-
 }
 
 
